@@ -13,3 +13,6 @@ Cargo.lock
 #Added by cargo
 
 /target
+
+#Dev files
+setup_env_vars.sh
