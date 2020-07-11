@@ -1,14 +1,32 @@
 // use colored::*;
 
-fn install_patch(modfiles: Vec<&str>) {
+#[derive(Debug)]
+struct ModFile {
+    filepath: String,
+    compile_to_fcb: bool,
+    decompile_to_xml: bool,
+}
+
+fn install_patch(modfiles: Vec<ModFile>) {
     println!("installing patch...");
     for modfile in modfiles {
-        println!("{}",modfile)
+        println!("{:?}", modfile)
     }
 }
 
 fn main() {
     println!("{}", "Hello, world!");
-    let modfiles = vec!["file1", "file2", "file3"];
-    install_patch(modfiles)
+    let modfiles = vec![
+        ModFile {
+            filepath: String::from("./file1"),
+            compile_to_fcb: false,
+            decompile_to_xml: true,
+        },
+        ModFile {
+            filepath: String::from("./file2"),
+            compile_to_fcb: true,
+            decompile_to_xml: false,
+        },
+    ];
+    install_patch(modfiles);
 }
